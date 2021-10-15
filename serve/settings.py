@@ -118,7 +118,24 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+_static_dir = BASE_DIR / 'static'
+
+#
+if DEBUG:
+    STATICFILES_DIRS = [_static_dir]
+else:
+    STATIC_ROOT = _static_dir
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/storage/'
+MEDIA_ROOT = BASE_DIR / 'storage'
+
+#
+# ===============
+# Custom Settings
+# ===============
+#

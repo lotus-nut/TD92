@@ -7,20 +7,12 @@ from django.utils.safestring import mark_safe
 
 class RichText(forms.Textarea):
 
-    def __init__(self, attrs=None, rt_attrs=None):
-        super().__init__(attrs)
-        #
-        rt_attrs = rt_attrs or {}
-        self.rt_attrs = rt_attrs
-
     def render(self, name, value, attrs=None, renderer=None):
         if value is None:
             value = ''
-
         final_attr = self.build_attrs(self.attrs, attrs)
         final_attr['name'] = name
-        class_ = final_attr.get('class')
-        final_attr['class'] = f'richtext {class_ if class_ else ""}'
+        final_attr['id'] = 'td92-rich-text-id'
 
         return mark_safe(
             f'<textarea{flatatt(final_attr)}>{escape(value)}</textarea>\n'
@@ -28,7 +20,13 @@ class RichText(forms.Textarea):
 
     @property
     def media(self):
-        return forms.Media()
+        return forms.Media(
+            css={'all': ['richtext/css/style.css']},
+            js=(
+                'tinymce/tinymce.min.js',
+                'richtext/js/init.js',
+            )
+        )
 
 
 class AdminRichTextWidget(RichText, AdminTextareaWidget):
