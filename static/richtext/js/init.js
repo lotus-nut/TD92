@@ -5,8 +5,8 @@
     let editor_id = 'td92-rich-text-id'
 
     // Plugins
-    let plugins = 'autoresize nonbreaking searchreplace fullpage' +
-        'lists advlist checklist table directionality hr codesample image link autolink fullscreen preview'
+    let plugins = 'autoresize nonbreaking searchreplace fullpage ' +
+        'lists advlist checklist table directionality hr codesample image link autolink preview fullscreen'
 
     // Toobar
     let toolbar = 'undo redo ' +
@@ -22,7 +22,7 @@
         'removeformat hr ' +
         'blockquote ' +
         'codesample ' +
-        'fullscreen preview '
+        'preview fullscreen '
 
     // let mobileToolbar = toolbar;
 
