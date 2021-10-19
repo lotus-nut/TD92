@@ -42,7 +42,7 @@ tinymce.addI18n('zh_CN',{
 "Heading 5": "\u6807\u98985",
 "Heading 6": "\u6807\u98986",
 // "Preformatted": "\u9884\u5148\u683c\u5f0f\u5316\u7684",
-"Preformatted": "\u9884\u5148\u683c\u5f0f\u5316",
+"Preformatted": "\u9884\u683c\u5f0f\u6587\u672c",
 "Div": "Div",
 "Pre": "Pre",
 "Code": "\u4ee3\u7801",
