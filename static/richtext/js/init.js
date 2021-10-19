@@ -6,14 +6,14 @@
 
     // Plugins
     let plugins = 'autoresize nonbreaking searchreplace ' +
-        'lists advlist table directionality codesample link autolink image'
+        'lists advlist checklist table directionality codesample link autolink image'
 
     // Toobar
     let toolbar = 'undo redo ' +
         'formatselect fontselect fontsizeselect bold italic ' +
         'alignleft aligncenter alignright alignjustify ' +
         'indent outdent ' +
-        'numlist bullist ' +
+        'numlist bullist checklist ' +
         'table ' +
         'ltr rtl ' +
         'blockquote ' +
