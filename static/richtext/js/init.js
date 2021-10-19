@@ -5,8 +5,8 @@
     let editor_id = 'td92-rich-text-id'
 
     // Plugins
-    let plugins = 'autoresize nonbreaking searchreplace ' +
-        'lists advlist checklist table directionality hr codesample link autolink image fullpage'
+    let plugins = 'autoresize nonbreaking searchreplace fullpage' +
+        'lists advlist checklist table directionality hr codesample image link autolink fullscreen preview'
 
     // Toobar
     let toolbar = 'undo redo ' +
@@ -14,14 +14,15 @@
         'alignleft aligncenter alignright alignjustify ' +
         'indent outdent ' +
         'numlist bullist checklist ' +
-        'forecolor backcolor '+
+        'forecolor backcolor ' +
         'table ' +
         'ltr rtl ' +
+        'image ' +
+        'link unlink ' +
         'removeformat hr ' +
         'blockquote ' +
         'codesample ' +
-        'link unlink ' +
-        'image '
+        'fullscreen preview '
 
     // let mobileToolbar = toolbar;
 
