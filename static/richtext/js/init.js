@@ -6,7 +6,7 @@
 
     // Plugins
     let plugins = 'autoresize nonbreaking searchreplace ' +
-        'lists advlist checklist table directionality codesample link autolink image'
+        'lists advlist checklist table directionality hr codesample link autolink image fullpage'
 
     // Toobar
     let toolbar = 'undo redo ' +
@@ -14,8 +14,10 @@
         'alignleft aligncenter alignright alignjustify ' +
         'indent outdent ' +
         'numlist bullist checklist ' +
+        'forecolor backcolor '+
         'table ' +
         'ltr rtl ' +
+        'removeformat hr ' +
         'blockquote ' +
         'codesample ' +
         'link unlink ' +
@@ -50,6 +52,9 @@
             images_reuse_filename: true,
             image_caption: false,
             image_title: false,
+            // fullpage
+            fullpage_default_font_size: '12pt',
+            fullpage_default_font_family: "'Times New Roman', Georgia;",
             //
             placeholder: "...",
             contextmenu: false,
