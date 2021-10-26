@@ -6,11 +6,11 @@
 
     // Plugins
     let plugins = 'autoresize nonbreaking searchreplace fullpage ' +
-        'lists advlist checklist table directionality hr codesample image link autolink preview fullscreen'
+        'lists advlist checklist table directionality hr codesample image link autolink preview fullscreen code'
 
     // Toobar
     let toolbar = 'undo redo ' +
-        'formatselect fontselect fontsizeselect bold italic ' +
+        'styleselect fontselect fontsizeselect bold italic ' +
         'alignleft aligncenter alignright alignjustify ' +
         'indent outdent ' +
         'numlist bullist checklist ' +
@@ -20,9 +20,10 @@
         'image ' +
         'link unlink ' +
         'removeformat hr ' +
+        'superscript subscript ' +
         'blockquote ' +
         'codesample ' +
-        'preview fullscreen '
+        'preview fullscreen code'
 
     // let mobileToolbar = toolbar;
 
@@ -64,6 +65,37 @@
             language: 'zh_CN',
             icons: 'custom',
             skin_url: '/static/tinymce-skins/ui_5.1.0',
+
+            style_formats: [
+                {
+                    title: 'Headers', items: [
+                        {title: 'Heading 1', block: 'h1'},
+                        {title: 'Heading 2', block: 'h2'},
+                        {title: 'Heading 3', block: 'h3'},
+                        {title: 'Heading 4', block: 'h4'},
+                        {title: 'Heading 5', block: 'h5'},
+                        {title: 'Heading 6', block: 'h6'}
+                    ]
+                },
+                {
+                    title: 'Inline', items: [
+                        {title: 'Underline', format: 'underline'},
+                        {title: 'Strikethrough', format: 'strikethrough'},
+                        {title: 'Bold', format: 'bold'},
+                        {title: 'Italic', format: 'italic'},
+                        {title: 'Address', format: 'address'},
+                        {title: 'Code', format: 'code'},
+                    ],
+                },
+                {
+                    title: 'Blocks', items: [
+                        {title: 'Paragraph', block: 'p'},
+                        {title: 'Blockquote', block: 'blockquote'},
+                        {title: 'Preformatted', block: 'pre'}
+                    ],
+                },
+            ],
+
         }
     );
     editor.on('init', function (e) {
