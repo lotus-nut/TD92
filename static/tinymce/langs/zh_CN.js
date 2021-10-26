@@ -47,7 +47,8 @@ tinymce.addI18n('zh_CN',{
 "Pre": "Pre",
 "Code": "\u4ee3\u7801",
 "Paragraph": "\u6bb5\u843d",
-"Blockquote": "\u5f15\u6587\u533a\u5757",
+// "Blockquote": "\u5f15\u6587\u533a\u5757",
+"Blockquote": "\u5f15\u7528\u5757",
 "Inline": "\u6587\u672c",
 "Blocks": "\u57fa\u5757",
 "Paste is now in plain text mode. Contents will now be pasted as plain text until you toggle this option off.": "\u5f53\u524d\u4e3a\u7eaf\u6587\u672c\u7c98\u8d34\u6a21\u5f0f\uff0c\u518d\u6b21\u70b9\u51fb\u53ef\u4ee5\u56de\u5230\u666e\u901a\u7c98\u8d34\u6a21\u5f0f\u3002",
@@ -467,5 +468,5 @@ tinymce.addI18n('zh_CN',{
 "Copy column": "\u590d\u5236\u5217",
 "Paste column before":"\u7c98\u8d34\u5230\u524d\u9762",
 "Paste column after":"\u7c98\u8d34\u5230\u540e\u9762",
-// Changed
+
 });
