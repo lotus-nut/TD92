@@ -3,3 +3,9 @@
 }
 
 
+div.tox-collection__item-label > strong, em, span, code, address, p, blockquote, pre {
+    font-family: "Times New Roman", Roboto, "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif !important;
+    font-size: 13px !important;
+    padding: 0 2px !important;
+}
+
