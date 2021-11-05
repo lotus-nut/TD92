@@ -15,7 +15,11 @@ class Note(models.Model):
 
     class Meta:
         db_table = 'app_notes_note'
-        verbose_name = verbose_name_plural = '笔记'
+        verbose_name = '笔记'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
 
 
 class UploadFile(models.Model):
@@ -27,4 +31,8 @@ class UploadFile(models.Model):
 
     class Meta:
         db_table = 'app_notes_upload_file'
-        verbose_name = verbose_name_plural = '上传文件'
+        verbose_name = '上传文件'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name

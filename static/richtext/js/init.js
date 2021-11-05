@@ -4,6 +4,8 @@
     // Editor id
     let editor_id = 'td92-rich-text-id'
 
+    let images_upload_url = '/note/upload_file';
+
     // Plugins
     let plugins = 'autoresize nonbreaking searchreplace fullpage ' +
         'lists advlist checklist table directionality hr codesample image link autolink preview fullscreen code'
@@ -23,13 +25,60 @@
         'superscript subscript ' +
         'blockquote ' +
         'codesample ' +
-        'preview fullscreen code'
+        'preview fullscreen'
 
     // let mobileToolbar = toolbar;
+
+    function custom_image_upload_handler(blobInfo, success, failure, progress) {
+        let xhr, formData;
+
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', images_upload_url);
+
+        xhr.upload.onprogress = function (e) {
+            progress(e.loaded / e.total * 100);
+        };
+
+        xhr.onload = function () {
+            let json;
+
+            if (xhr.status === 403) {
+                failure('HTTP Error: ' + xhr.status, {remove: true});
+                return;
+            }
+            if (xhr.status < 200 || xhr.status >= 300) {
+                failure('HTTP Error: ' + xhr.status);
+                return;
+            }
+            json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+                if ('error' in json) {
+                    failure('上传失败：' + json.error);
+                } else {
+                    failure('Invalid JSON: ' + xhr.responseText);
+                }
+                return;
+            }
+
+            success(json.location);
+        };
+
+        xhr.onerror = function () {
+            failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+        };
+
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+        xhr.send(formData);
+    }
 
     // Create and init editor
     let editor = tinymce.createEditor(editor_id,
         {
+            deprecation_warnings: false,
             menubar: false,
             plugins: plugins,
             toolbar: toolbar,
@@ -47,13 +96,14 @@
             link_assume_external_targets: 'http',
             // image
             image_advtab: true,
-            images_upload_url: '/note/upload_file',
+            images_upload_url: images_upload_url,
             images_upload_credentials: true,
             automatic_uploads: true,
             image_description: false,
             images_reuse_filename: true,
             image_caption: false,
             image_title: false,
+            images_upload_handler: custom_image_upload_handler,
             // fullpage
             fullpage_default_font_size: '12pt',
             fullpage_default_font_family: "'Times New Roman', Georgia;",
